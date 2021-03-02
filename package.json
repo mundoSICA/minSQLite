@@ -1,0 +1,58 @@
+{
+  "name": "min-sqlite",
+  "version": "0.0.1",
+  "description": "The light and minimalist ORM for sqlite 3",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/mundoSICA/minSQLite#readme",
+  "scripts": {
+    "build": "rm -fr dist && babel src -d dist",
+    "dev": "nodemon --exec mocha test",
+    "lint": "eslint --fix src/",
+    "test": "npx mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mundoSICA/minSQLite.git"
+  },
+  "keywords": [
+    "sqlite",
+    "sql",
+    "lite",
+    "db",
+    "databases"
+  ],
+  "author": {
+    "name": "Miguel A. Marcial",
+    "social": "@fitorec",
+    "email": "chanerec@gmail.com",
+    "url": "http://fitorec.wordpress.com/"
+  },
+  "contributors": [
+    {
+      "name": "Edwin",
+      "social": "@snow",
+      "email": "programacion@mundosica.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mundoSICA/minSQLite/issues",
+    "email": "programacion@gmail.com"
+  },
+  "homepage": "https://github.com/mundoSICA/minSQLite#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "chai": "^4.3.0",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.3.0",
+    "mochawesome": "^6.2.2",
+    "nativescript-sqlite": "^2.6.6",
+    "nodemon": "^2.0.7",
+    "sqlite": "^4.0.19",
+    "sqlite3": "^5.0.2"
+  }
+}
