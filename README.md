@@ -40,16 +40,16 @@ async function someFunc() {
 }
 
 // immutable Object
-const objImmutable = utils.immutable({ betzy: '♥', fitorec: '🤓' });
-// return { betzy: '♥', fitorec: '🤓' }
-objImmutable.betzy            // '♥'
-objImmutable.fitorec          // '🤓'
-objImmutable.betzy = 6;       // Exception Error: Immutable!
+const objImmutable = utils.immutable({ betzy: '💘', fitorec: '🤓' });
+// return { betzy: '💘', fitorec: '🤓' }
+objImmutable.betzy             // '💘'
+objImmutable.fitorec           // '🤓'
+objImmutable.betzy = 6;        // Exception Error: Immutable!
 objImmutable.firorec = 'x';    // Exception Error: Immutable!
 objImmutable.newProp = 'some value'; // Exception Error: Immutable!
-objImmutable.betzy            // '♥'  (no changed)
-objImmutable.fitorec          // '🤓' (no changed)
-utils.has('newProp', objImmutable); // false
+objImmutable.betzy                   // '💘'  (no changed)
+objImmutable.fitorec                 // '🤓' (no changed)
+utils.has('newProp', objImmutable);  // false
 ```
 
 
