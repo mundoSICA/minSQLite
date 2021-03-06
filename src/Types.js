@@ -34,16 +34,16 @@
 /**
  * Utils functions
  */
-const sqlite3INT = (n) => parseInt(n, 10);
-const sqlite3Text = (str) => ((str === null) ? null : String(str));
-const sqlite3Blob = (data) => Buffer.from(data, 'base64');
+const styleINT = (n) => parseInt(n, 10);
+const styleText = (str) => ((str === null) ? null : String(str));
+const styleBlob = (data) => Buffer.from(data, 'base64');
 
-const sqlite3AppendMaxLen = function sqlite3AppendMaxLen(data, n = -1) {
+const styleAppendMaxLen = function styleAppendMaxLen(data, n = -1) {
   const len = (n < 1) ? data.maxLen : Math.min(n, 255);
   return { ...data, ...{ maxLen: len } };
 };
 
-const sqlite3Types = {
+const styleTypes = {
   DEFAULT: {
     cast: null,
     pk: false, // T/F is primary key
@@ -113,21 +113,21 @@ const sqlite3Types = {
    */
   cast: {
     // INTEGER
-    INT: sqlite3INT,
-    INTEGER: sqlite3INT,
-    TINYINT: sqlite3INT,
-    SMALLINT: sqlite3INT,
-    MEDIUMINT: sqlite3INT,
-    BIGINT: sqlite3INT,
-    INT8: sqlite3INT,
-    INT2: sqlite3INT,
+    INT: styleINT,
+    INTEGER: styleINT,
+    TINYINT: styleINT,
+    SMALLINT: styleINT,
+    MEDIUMINT: styleINT,
+    BIGINT: styleINT,
+    INT8: styleINT,
+    INT2: styleINT,
     /// TEXT ////////////////////
-    TEXT: sqlite3Text,
-    VARCHAR: sqlite3Text,
-    NVARCHAR: sqlite3Text,
-    CHARACTER: sqlite3Text,
-    NCHAR: sqlite3Text,
-    CLOB: sqlite3Text,
+    TEXT: styleText,
+    VARCHAR: styleText,
+    NVARCHAR: styleText,
+    CHARACTER: styleText,
+    NCHAR: styleText,
+    CLOB: styleText,
     /// NUMBERS //////////////////////
     REAL: Number,
     DOUBLE: Number,
@@ -137,7 +137,7 @@ const sqlite3Types = {
     BOOLEAN(b) { return ((b === '0') ? false : Boolean(b)); },
     DATE: Date,
     DATETIME: Date,
-    BLOB: sqlite3Blob,
+    BLOB: styleBlob,
   },
   normalizeAttr(attrName, attrVal = null) {
     switch (attrName) {
@@ -255,9 +255,9 @@ const sqliHandle = {
     if (!typesObj.withLen(typeName)) {
       return data;
     }
-    return (n = -1) => sqlite3AppendMaxLen(data, n);
+    return (n = -1) => styleAppendMaxLen(data, n);
   },
   set() { throw new Error('minSQLiteTypes is immutable!'); },
 };
 
-export default new Proxy(sqlite3Types, sqliHandle);
+export default new Proxy(styleTypes, sqliHandle);

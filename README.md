@@ -8,11 +8,56 @@ The light and minimalist ORM for sqlite 3
 ## Model example:
 > 
 
+## Trying
+
+### utils (`src/Utils.js`)
+```javascript
+import { utils } from ''min-sqlite;
+
+// strFormat
+utils.strFormat(
+  'SELECT $fields FROM $name WHERE $conds ;',
+  '*',
+  'users',
+  'id = 1'
+);
+// return
+// SELECT users FROM users WHERE id = 1 ;
+
+// method has
+const undef = undefined;
+const arr = [12, 4, 5, 6];
+utils.has(null, 'x');            // false
+utils.has(undef, 'y');           // false
+utils.has({}, undef));           // false
+utils.has(arr, 0))               // true
+utils.has(arr, arr.length - 1);  // true
+utils.has(arr, arr.length);      // true
+// method sleep
+async function someFunc() {
+  await utils.sleep(1000); // sleeping 1s
+  // ... more code
+}
+
+// immutable Object
+const objImmutable = utils.immutable({ betzy: '♥', fitorec: '🤓' });
+// return { betzy: '♥', fitorec: '🤓' }
+objImmutable.betzy            // '♥'
+objImmutable.fitorec          // '🤓'
+objImmutable.betzy = 6;       // Exception Error: Immutable!
+objImmutable.firorec = 'x';    // Exception Error: Immutable!
+objImmutable.newProp = 'some value'; // Exception Error: Immutable!
+objImmutable.betzy            // '♥'  (no changed)
+objImmutable.fitorec          // '🤓' (no changed)
+utils.has('newProp', objImmutable); // false
+```
 
 
-## Trying SQLite3 types.
+
+### SQLite3 types (`src/Types.js`)
 
 ```javascript
+
 import {types} from ''min-sqlite;
 
 types.list();                         // List of available types
