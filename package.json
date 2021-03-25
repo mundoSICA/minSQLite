@@ -1,6 +1,6 @@
 {
   "name": "min-sqlite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The light and minimalist ORM for sqlite 3",
   "main": "src/index.js",
   "homepage": "https://github.com/mundoSICA/minSQLite#readme",
@@ -8,6 +8,7 @@
     "build": "rm -fr dist && babel src -d dist",
     "dev": "nodemon --exec mocha test",
     "lint": "eslint --fix src/",
+    "release": "standard-version",
     "test": "npx mocha test"
   },
   "repository": {
@@ -57,7 +58,8 @@
     "nativescript-sqlite": "^2.6.6",
     "nodemon": "^2.0.7",
     "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "standard-version": "^9.1.1"
   },
   "dependencies": {
     "core-js": "^3.9.1",
